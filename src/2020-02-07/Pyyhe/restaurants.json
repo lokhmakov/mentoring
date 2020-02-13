@@ -1,0 +1,30 @@
+{
+  "restaurants": [
+    {
+      "id": "id0",
+      "blurhash": "UUKdasdafafafsfQwvxZXSs9s;o0",
+      "city": "afsafsafs",
+      "currency": "EUR",
+      "delivery_price": 390,
+      "description": "Asenneburgeri",
+      "image": "asfafsafsafa",
+      "location": [224.941325187683105, 602.169938852212965],
+      "name": "Social afsafs Citycenter",
+      "online": false,
+      "tags": ["hamburger", "fries"]
+    },
+    {
+      "id": "id1",
+      "blurhash": "UUKJMXvasgfagagagQwvxZXSs9s;o0",
+      "city": "fasafsfas",
+      "currency": "EUR",
+      "delivery_price": 390,
+      "description": "Asenneburgeri",
+      "image": "asfafsafsafa",
+      "location": [24.941325187683105, 60.169938852212965],
+      "name": "zSocial Burgerjoint Citycenter",
+      "online": false,
+      "tags": ["hamburger", "fries"]
+    }
+  ]
+}

@@ -10,11 +10,18 @@ function case1() {
 
 function case2() {
   const map = Object.fromEntries(SORT_ORDER.map((v, i) => [v, i]))
-
   const sortedArr = arr.sort((a, b) => map[a] - map[b])
 
   console.log('sortedArr', sortedArr)
 }
 
+function case3() {
+  const sortedArr = arr.sort(
+    (a, b) => SORT_ORDER.indexOf(a) - SORT_ORDER.indexOf(b),
+  )
+  console.log('sortedArr', sortedArr)
+}
+
 case1()
 case2()
+case3()

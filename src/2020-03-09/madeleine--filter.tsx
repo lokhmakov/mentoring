@@ -31,8 +31,10 @@ function App() {
   }, [])
 
   React.useEffect(() => {
-    const list = Object.keys(data)
-    setOrder(list.filter(id => data[id].date.includes(year)))
+    if (year) {
+      const list = Object.keys(data)
+      setOrder(list.filter(id => data[id].date.includes(year)))
+    }
   }, [year])
 
   return (

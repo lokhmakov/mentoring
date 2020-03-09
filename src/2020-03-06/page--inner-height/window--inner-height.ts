@@ -1,7 +1,9 @@
 import {createStore, createEvent, createEffect} from 'effector'
 import {useStore} from 'effector-react'
 
-const EVENT_RESIZE = `resize`
+const eventMap = {
+  RESIZE: `resize`,
+}
 
 const on = {
   set: createEvent<Number>(),
@@ -18,12 +20,12 @@ function onResize() {
 const run = {
   enable: createEffect<void, void, Error>({
     handler() {
-      window.addEventListener(EVENT_RESIZE, onResize)
+      window.addEventListener(eventMap.RESIZE, onResize)
     },
   }),
   disable: createEffect<void, void, Error>({
     handler() {
-      window.removeEventListener(EVENT_RESIZE, onResize)
+      window.removeEventListener(eventMap.RESIZE, onResize)
     },
   }),
 }

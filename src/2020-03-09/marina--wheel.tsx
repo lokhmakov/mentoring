@@ -14,7 +14,10 @@ function App() {
       const timeCurrent = new Date().getTime()
 
       if (!time.current || time.current < timeCurrent - DELTA) {
-        setIndex(v => v + Math.sign(d))
+        setIndex(v => {
+          const value = v + Math.sign(d)
+          return value > 8 ? 1 : value < 1 ? 8 : value
+        })
         time.current = timeCurrent
       }
 
@@ -25,6 +28,8 @@ function App() {
 
     return () => window.removeEventListener(EVENT_WHEEL, onWheel)
   }, [])
+
+  console.log(`INDEX`, index)
 
   return <div>{index}</div>
 }

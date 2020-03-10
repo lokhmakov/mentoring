@@ -21,4 +21,28 @@ const process = (data, keys = Object.keys(data)) =>
     keys.reduce((r, v) => ((r[v] = data[v][i]), r), {}),
   )
 
-console.log(JSON.stringify(process(h.Sheet1), null, 2))
+const processFaramo = sheet => {
+  const keys = Object.keys(sheet)
+  const values = Object.values(sheet)
+  const maxSize = values.reduce(
+    (max, {length}) => (max < length ? length : max),
+    values[0].length,
+  )
+
+  return values.reduce((acc, curr, i) => {
+    let tmp = []
+
+    for (let j = 0; j < maxSize; j++) {
+      tmp.push({
+        ...acc[j],
+        [keys[i]]: curr[j] || null,
+      })
+    }
+
+    return tmp
+  }, [])
+}
+
+const caseList = [process, processFaramo]
+
+caseList.forEach(fn => console.log(JSON.stringify(fn(h.Sheet1), null, 2)))

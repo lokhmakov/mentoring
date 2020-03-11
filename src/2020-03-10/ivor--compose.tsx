@@ -21,6 +21,16 @@ const process = (data, keys = Object.keys(data)) =>
     keys.reduce((r, v) => ((r[v] = data[v][i]), r), {}),
   )
 
+const process2 = (data, keys = Object.keys(data)) =>
+  Array.from(data[keys[0]], (_, i) =>
+    Object.fromEntries(keys.map(v => [v, data[v][i]])),
+  )
+
+const process3 = (data, keys = Object.keys(data)) =>
+  data[keys[0]].map((_, i) =>
+    Object.fromEntries(keys.map(v => [v, data[v][i]])),
+  )
+
 const processFaramo = sheet => {
   const keys = Object.keys(sheet)
   const values = Object.values(sheet)

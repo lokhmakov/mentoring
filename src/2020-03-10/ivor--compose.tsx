@@ -43,6 +43,44 @@ const processFaramo = sheet => {
   }, [])
 }
 
+const processShirokuro = data =>
+  Object.values(data).reduce(
+    (result, sheet) => (
+      Object.keys(sheet)
+        .reduce(
+          (bundle, key) => (
+            Object.values(sheet[key]).reduce(
+              (_, value, index) => ((bundle[index][key] = value), bundle),
+              undefined,
+            ),
+            bundle
+          ),
+          Array.from(
+            new Array(
+              Object.keys(sheet).reduce(
+                (max, key) => (
+                  max < sheet[key].length ? (max = sheet[key].length) : max, max
+                ),
+                0,
+              ),
+            ),
+            value => (
+              Object.keys(sheet).reduce(
+                (obj, key) => ((obj[key] = undefined), (value = obj)),
+                {},
+              ),
+              value
+            ),
+          ),
+        )
+        .reduce((_, value) => result.push(value), undefined),
+      result
+    ),
+    [],
+  )
+
 const caseList = [process, processFaramo]
 
 caseList.forEach(fn => console.log(JSON.stringify(fn(h.Sheet1), null, 2)))
+
+console.log(JSON.stringify(processShirokuro(h), null, 2))

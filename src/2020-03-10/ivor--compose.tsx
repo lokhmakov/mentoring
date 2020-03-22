@@ -31,6 +31,11 @@ const process3 = (data, keys = Object.keys(data)) =>
     Object.fromEntries(keys.map(v => [v, data[v][i]])),
   )
 
+const process4 = data =>
+  Object.values(data)[0].map((_, i) =>
+    Object.fromEntries(Object.keys(data).map(v => [v, data[v][i]])),
+  )
+
 const processFaramo = sheet => {
   const keys = Object.keys(sheet)
   const values = Object.values(sheet)
@@ -89,8 +94,8 @@ const processShirokuro = data =>
     [],
   )
 
-const caseList = [process, processFaramo]
+const caseList = [process4]
 
 caseList.forEach(fn => console.log(JSON.stringify(fn(h.Sheet1), null, 2)))
 
-console.log(JSON.stringify(processShirokuro(h), null, 2))
+// console.log(JSON.stringify(processShirokuro(h), null, 2))

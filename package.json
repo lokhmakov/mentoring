@@ -5,7 +5,7 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "1.6.0",
     "effector": "20.12.2",
     "effector-react": "20.6.2",
     "react": "^16.12.0",
